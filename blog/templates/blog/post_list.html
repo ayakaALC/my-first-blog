@@ -1,9 +1,18 @@
+
 <!DOCTYPE html> 
 <html>
 <head>
 	<title>Sang Soo Ha's Blog</title>
 </head>
 <body>
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
 	<div>
 		<h1><strong><center>2B</center></strong></h1>
 		<br></br>
