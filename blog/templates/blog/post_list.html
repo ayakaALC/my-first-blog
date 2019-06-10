@@ -1,45 +1,31 @@
-<!DOCTYPE html> 
+{% load static %}
 <html>
-<head>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	<title>Sang Soo Ha's Blog</title>
-</head>
-<body>
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
+    <head>
+        <title>isThisReal?</title>
+	<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+<div class="page-header">
+    <h1><a href="/">isThisReal?</a></h1>
+</div>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-{% endfor %}
-
-	<div>
-		<h1><strong><center>2B</center></strong></h1>
-		<br></br>
-		<h1><a href="/">Sang Soo Ha's Blog</a></h1>
-	</div>
-
-
-	<div>
-		<p>That is the question.</p>
-		<h2><a href="">My first post</a></h2>
-		<p>Seulgi</p>
-	</div>
-
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to displate Date and Time.</button>
-
-<p id="demo"></p>
-
-<script>
-const button = document.querySelector('button');
-
-button.onclick = function() {
-	let name = prompt("What is your name?");
-	alert("Hello ", name + ", nice to see you!");
-</script>
-
-</body>
+</div>
+    </body>
 </html>
