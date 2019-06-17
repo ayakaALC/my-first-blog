@@ -34,7 +34,7 @@ email-reply-parser==0.5.9
 et-xmlfile==1.0.1
 fake-useragent==0.1.11
 Flask==1.0.2
--e git+https://github.com/ayakaALC/my-first-blog.git@362e20ffd116324ae3518537a33ca84651a513ac#egg=flaskr
+-e git+https://github.com/ayakaALC/my-first-blog.git@d024a751a309a636f583517c5ad4bde783cedf50#egg=flaskr
 future==0.17.1
 get==2018.11.19
 git==1.2.2

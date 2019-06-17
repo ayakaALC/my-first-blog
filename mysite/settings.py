@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -27,7 +28,8 @@ SECRET_KEY = 'wzuvne^@#$&u7$hg)m0rxi%!g&fyt*x#&e!nz^&#l#867&dp*0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'pythonanywhere.com','sangsooha95.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'pythonanywhere.com','sangsooha95.pythonanywhere.com',
+                 '.herokuapp.com']
 
 
 # Application definition
@@ -78,17 +80,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
-
-
-"""
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'isThisReal',
         'USER': 'has',
         'PASSWORD': 'Egoist123!!',
@@ -96,10 +88,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-"""
-    
-#db_from_env = dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
+
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
