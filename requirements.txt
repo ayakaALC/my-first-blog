@@ -37,7 +37,6 @@ Flask==1.0.2
 -e git+https://github.com/ayakaALC/my-first-blog.git@1f3512994604a2559541e6cdc4deaa03378511c3#egg=flaskr
 future==0.17.1
 get==2018.11.19
-git==1.2.2
 google-images-download==2.8.0
 gspread==3.1.0
 gunicorn==19.9.0
