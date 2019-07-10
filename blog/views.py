@@ -1,10 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.utils import timezone
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
-from django.shortcuts import render, get_object_or_404
-from django.shortcuts import redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
+from django.views.generic import ListView, CreateView # new
+from django.core.files.storage import FileSystemStorage
 
 
 def post_list(request):
@@ -18,7 +21,7 @@ def post_detail(request, pk):
 @login_required
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -83,3 +86,12 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+# Create your views here. 
+def image(request, pk): 
+    model = Post
+    return redirect('post_detail', pk=post.pk)
+
+
+
+

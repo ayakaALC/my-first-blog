@@ -7,8 +7,18 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+    model_pic = models.ImageField(upload_to='images/', default='/images/seulgi.jpg')
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+
+    def upload_image(self, filename):
+        return 'post/{}/{}'.format(self.title, filename)
+
+    #name = models.CharField(max_length=50, null=True)
+    #model_pic = models.Images(upload_to= 'images/', \
+    #                              default = 'images/None/no-img.jpg')
+    ####
+    #cover = models.ImageField(upload_to='images/', null=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -33,3 +43,16 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.text
+
+    # -*- coding: utf-8 -*-
+"""class Document(models.Model):
+    document = models.FileField(upload_to='documents/%Y/%m/%d')
+    title = models.CharField(max_length=200)
+    uploaded_at = models.DateTimeField(default=timezone.now)"""
+
+
+"""class Hotel(models.Model): 
+    name = models.CharField(max_length=50) 
+    hotel_Main_Img = models.ImageField(upload_to='images/') """
+
+
