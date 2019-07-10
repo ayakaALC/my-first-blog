@@ -36,7 +36,6 @@ fake-useragent==0.1.11
 Flask==1.0.2
 future==0.17.1
 get==2018.11.19
-git==1.2.2
 google-images-download==2.8.0
 gspread==3.1.0
 gunicorn==19.9.0
