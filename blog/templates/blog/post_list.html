@@ -7,7 +7,11 @@
                 {{ post.published_date }}
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+<<<<<<< HEAD
        	<img src="{{ post.model_pic.url }}" alt="{{ post.title }}" />
+=======
+	    <img src="{{ post.model_pic.url }}" alt="{{ post.title }}" />
+>>>>>>> 199441b0eeb5ee4a7a4a46417a5c640c80ee34f0
             <p>{{ post.text|linebreaksbr }}</p>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
         </div>

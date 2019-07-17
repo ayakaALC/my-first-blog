@@ -18,8 +18,13 @@ LOGIN_REDIRECT_URL = '/'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+<<<<<<< HEAD
 MEDIA_ROOT = os.path.join(BASE_DIR,"media/images")
 MEDIA_URL = "/media/images/"
+=======
+MEDIA_ROOT = os.path.join(BASE_DIR,"media/")
+MEDIA_URL = "media/images/"
+>>>>>>> 199441b0eeb5ee4a7a4a46417a5c640c80ee34f0
 
 
 # Quick-start development settings - unsuitable for production
@@ -40,7 +45,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'pythonanywhere.com','sangsooha95.pythonanywhere.c
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -56,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'mysite.urls'
