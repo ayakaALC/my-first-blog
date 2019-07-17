@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('post/new/', views.post_new, name='post_new'),
     path('', views.post_list, name='post_list'),
@@ -12,4 +13,8 @@ urlpatterns = [
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
     path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),
     path('comment/<int:pk>/remove/', views.comment_remove, name='comment_remove'),
-]
+    #path('post/<int:pk>/', views.createPostView, name='create_post_view'),
+    path('post/<int:pk>/image_upload', views.image, name = 'image_upload'), 
+    #path('post/<int:pk>/success', views.success, name = 'success'),
+
+    ]
